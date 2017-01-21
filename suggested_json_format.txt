@@ -1,0 +1,45 @@
+// I propose a new format for the json data.  
+// instead of getting initial vs current, we simply get the price and 
+// record it with the date. we can assume that the date he mentioned the 
+// company is the first date.  this would allow us to make a graph of
+// the prices over the next seven days.  
+// on the graph, the x-axis would be 0-7 days since mentioned, and we'd 
+// calculate that in the javascript.
+
+// original:
+{
+    "nike": {
+        "Date-mentioned": "17-01-2017 22:00:26", 
+        "Initial-share-price": 53.56, 
+        "Symbol": "NKE", 
+        "Current-share-price": 53.56, 
+        "Days-left": 7
+    },  
+    "toyota": {
+        "Date-mentioned": "17-01-2017 22:00:26", 
+        "Initial-share-price": 118.23, 
+        "Symbol": "TM", 
+        "Current-share-price": 118.23, 
+        "Days-left": 7
+    }   
+}
+
+// proposed:
+{
+    "nike": {
+        "Symbol": "NKE", 
+        "share-prices": {
+            "17-01-2017": 53.56,
+            "18-01-2017": 52.35,
+            "19-01-2017": 51.07
+        }   
+    },  
+    "toyota": {
+        "Symbol": "TM", 
+        "share-prices": {
+            "17-01-2017": 53.56,
+            "18-01-2017": 52.35,
+            "19-01-2017": 51.07
+        }   
+    }   
+}
